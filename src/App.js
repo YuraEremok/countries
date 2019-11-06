@@ -3,14 +3,12 @@ import {connect} from "react-redux";
 import {getStorageData, errorCityAction, getData, onChangeValue, pushInputAction} from "./reducers/rootReducer";
 import {PLACEHOLDERS} from './constants';
 
-const App = ({getStorageData, items, inputValue, onChangeValue, getData, storageData}) => {
+const App = ({getStorageData, data:{data}, inputValue, onChangeValue, getData, storageData}) => {
   const [placeholder,setPlaceholder] = useState(PLACEHOLDERS.name);
 
    useEffect(() => {
       getStorageData()
    }, [getStorageData]);
-
-   const data = items.data;
 
    console.log(data)
    return (
@@ -57,7 +55,6 @@ const App = ({getStorageData, items, inputValue, onChangeValue, getData, storage
                onClick={getData('codeList')}
             />
             <div className="data_container">
-
             </div>
          </div>
          );
@@ -67,7 +64,7 @@ const App = ({getStorageData, items, inputValue, onChangeValue, getData, storage
          return {
          storageData: state.reducer.storageData,
          inputValue: state.reducer.inputValue,
-         items: state.reducer.items,
+         data: state.reducer.data,
          error: state.reducer.error,
       }
       };
