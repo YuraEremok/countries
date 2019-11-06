@@ -1,26 +1,82 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {useEffect, useState} from 'react'
+import {connect} from "react-redux";
+import {getStorageData, errorCityAction, getData, onChangeValue, pushInputAction} from "./reducers/rootReducer";
+import {PLACEHOLDERS} from './constants';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = ({getStorageData, items, inputValue, onChangeValue, getData, storageData}) => {
+  const [placeholder,setPlaceholder] = useState(PLACEHOLDERS.name);
 
-export default App;
+   useEffect(() => {
+      getStorageData()
+   }, [getStorageData]);
+
+   const data = items.data;
+
+   console.log(data)
+   return (
+      <div className="app">
+            <input
+               id="name"
+               type="text"
+               className="form-control"
+               placeholder={placeholder}
+               value={inputValue}
+               onChange={e => onChangeValue(e.target.value)}
+            />
+            <div className="search_buttons">
+               <input
+                  type="button"
+                  onClick={getData('name')}
+                  value="Search by name"
+                  onMouseOver={()=>setPlaceholder(PLACEHOLDERS.name)}
+               />
+               <input
+                  type="button"
+                  onClick={getData('fullName')}
+                  value="Search by full name"
+                  onMouseOver={()=>setPlaceholder(PLACEHOLDERS.fullName)}
+               />
+               <input
+                  type="button"
+                  onClick={getData('code')}
+                  value="Search by code"
+                  onMouseOver={()=>setPlaceholder(PLACEHOLDERS.code)}
+
+               />
+               <input
+                  type="button"
+                  onClick={getData('currency')}
+                  value="Search by currency"
+                  onMouseOver={()=>setPlaceholder(PLACEHOLDERS.currency)}
+               />
+            </div>
+
+            <input
+               type="button"
+               value="get list of country codes"
+               onClick={getData('codeList')}
+            />
+            <div className="data_container">
+
+            </div>
+         </div>
+         );
+         };
+
+         const mapStateToProps = (state) => {
+         return {
+         storageData: state.reducer.storageData,
+         inputValue: state.reducer.inputValue,
+         items: state.reducer.items,
+         error: state.reducer.error,
+      }
+      };
+
+         export default connect(mapStateToProps, {
+         onChangeValue,
+         getStorageData,
+         getData,
+         pushInputAction,
+         errorCityAction,
+      })(App)
+
