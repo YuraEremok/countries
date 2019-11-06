@@ -63,7 +63,7 @@ export const getStorageData = () => (dispatch) => {
 let initialState = {
    inputValue: '',
    storageData: [],
-   items: '',
+   data: '',
    error: '',
 
 };
@@ -84,7 +84,7 @@ const RootReducer = (state = initialState, action) => {
          return {...state, storageData: action.obj}
       }
       case GET_WATER: {
-         return {...state, items: action.p}
+         return {...state, data: action.p}
       }
       case PUSH_INPUT: {
          return {...state, inputValue: action.e, error: ''}
