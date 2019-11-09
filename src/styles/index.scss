@@ -1,16 +1,160 @@
 
 .app {
+  font-family: Tahoma, Geneva, Kalimati, sans-serif;
   margin-top: 20px;
   text-align: center;
+
   input[type=text] {
+    transition: all 0.75s ease-in-out;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 3px;
     width: 50%;
+    padding: 2px 4px;
+
+    &:focus {
+      padding: 5px;
+      box-shadow: 0 0 10px #aaa;
+      border: 1px solid #999;
+      background-color: white;
+    }
   }
 
-  .search_buttons {
+  .data_container {
+    margin-top: 5px;
+  }
+
+  .search {
+    width: 60%;
+    margin: 0 auto;
+    position: relative;
+       .input{
+         position: relative;
+       }
+
+    .form-control{
+  }
+
+    .input_storage {
+      padding: 0 3px;
+      padding-bottom: 5px;
+      margin-top: 3px;
+      display: flex;
+      flex-direction: column;
+      border: 1px solid #4553FF;
+      border-top: none;
+      background: white;
+      box-shadow: 0 0 10px #aaa;
+      border-radius: 3px;
+      position: absolute;
+      left: 0;
+      span {
+        animation: dropdown 1s ease-in-out;
+        cursor: pointer;
+
+        &:hover {
+          background-color: #5166FF;
+        }
+      }
+    }
+
+    @keyframes dropdown {
+      0% {
+        opacity: 0;
+        transform: scale(0.3) translateY(-60px)
+      }
+      80% {
+        transform: scale(1.2)
+      }
+      100% {
+        transform: scale(1) translateY(0px);
+        opacity: 1
+      }
+    }
+  }
+
+  .main_info {
     margin: 10px 0;
     display: grid;
-    grid-gap: 20px;
+    grid-gap: 10px;
     justify-content: center;
-    grid-template-columns: auto auto auto auto;
+    grid-template-columns: 50px 300px 130px 130px auto;
+    align-items: center;
+
+    p {
+      margin: 0;
+    }
+
+    .flag {
+      width: 50px;
+      height: 50px;
+    }
+
+    .currency {
+      span:not(:last-child):after {
+        content: ', ';
+      }
+    }
+  }
+
+  .info_toggle {
+    cursor: pointer;
+    color: blue;
+  }
+
+  .full_info {
+    display: grid;
+    grid-template-columns: auto auto;
+
+    div {
+      display: grid;
+      grid-auto-rows: 30px;
+
+      span {
+        font-size: 14px;
+        border-bottom: 1px solid black;
+        align-self: center;
+      }
+
+    }
+
+  }
+
+  .error {
+    color: red
+  }
+
+  input[type=button] {
+    margin-left: 10px;
+
+    &:disabled {
+      background-color: #BABABA;
+      opacity: 0.5;
+      color: grey;
+      cursor: auto;
+    }
+  }
+
+  .search_button {
+    margin: 0 0 0 5px;
+    font-size: 14px;
+  }
+
+  .code_button {
+    margin: 10px 0;
+  }
+
+  .image_loc{
+    height: 20px;
+    width: 20px;
+  }
+
+  .localization{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+    img{
+      margin-left: 5px;
+    }
   }
 }
