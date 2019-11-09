@@ -3,6 +3,7 @@ import {connect} from "react-redux";
 import {getStorageData, getError, getData, onChangeValue, setLanguage, pushInput} from "./reducers/rootReducer";
 import DataContainer from "./components/DataContainer";
 import {strings} from "./localization";
+import {uniqueId} from "lodash";
 import rus from './rus.png'
 import usa from './usa.png'
 
@@ -37,9 +38,9 @@ const App = ({
    return (
       <div className="app">
          <div className='localization'>
-            <select onChange={handleLanguageChange}>
+            <select onChange={handleLanguageChange} defaultValue={language}>
                <option value="en">En</option>
-               <option selected={language === 'ru'} value="ru">Ru</option>
+               <option value="ru">Ru</option>
             </select>
             <img alt="" className='image_loc' src={language === 'ru' ? rus : usa}/>
          </div>
@@ -57,7 +58,7 @@ const App = ({
                />
                {isStorageInput && <div className='input_storage'>
                   {storageData.map((el) =>
-                     <span onClick={() =>
+                     <span key={uniqueId()} onClick={() =>
                         pushInput(el, toggleStorageInput(!isStorageInput))}
                      >
                   {el}
@@ -67,7 +68,7 @@ const App = ({
                }
             </span>
             <span className='search_button'>{strings.searchBy} </span>
-            <select required onChange={(e) => setSearchType(e.target.value)}>
+            <select required defaultValue='fullName' onChange={(e) => setSearchType(e.target.value)}>
                <option value="name">{strings.name}</option>
                <option value="fullName" selected>{strings.fullName}</option>
                <option value="code">{strings.code}</option>

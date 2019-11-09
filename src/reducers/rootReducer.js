@@ -1,4 +1,5 @@
 import {axiosInstance} from "../axios";
+import { get } from 'lodash'
 import {
    GET_COUNTRIES,
    ADD_VALUE,
@@ -49,7 +50,7 @@ export const getData = (type) => (dispatch, getState) => () => {
    axiosInstance.get(query).then((par) => {
       dispatch(getCountryies((par)));
       dispatch(clearInput());
-   }).catch((error) => dispatch(getError(error.response.status)))
+   }).catch((error) => dispatch(getError(get(error,'response.status'))))
 };
 
 export const getStorageData = () => (dispatch) => {

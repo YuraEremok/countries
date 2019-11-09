@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
-import { get } from 'lodash'
+import { get,uniqueId } from 'lodash'
 import {strings} from "../../localization";
 import FullInfo from "../FullInfo";
 
-const DataContainer = ({data, error, storageData}) => {
+const DataContainer = ({data, error}) => {
    const [isFullData, toggleFullData] = useState(null);
    const isCountryCodes = get(data, 'length', []) > 240;
    if (error) return <h2 className='error'>{error}</h2>;
@@ -11,7 +11,7 @@ const DataContainer = ({data, error, storageData}) => {
    return (
       <div className="data_container">
          {data && !isCountryCodes && data.map(item => {
-            return <div className="data" key={item.numericCode}>
+            return <div className="data" key={uniqueId()}>
                <div className='main_info'>
                   <img className="flag" src={item.flag} alt=""/>
                   <div><b>{strings.country}:</b><p>{item.name}</p></div>
@@ -19,7 +19,7 @@ const DataContainer = ({data, error, storageData}) => {
                   <div className="currency">
                      <p><b>{strings.currency}:</b></p>
                      {item.currencies.map(el => el.code !== null ?
-                        <span key={item.numericCode}>{el.code}</span> : null)}
+                        <span key={uniqueId()}>{el.code}</span> : null)}
                   </div>
                   <span className="info_toggle"
                         onClick={() => toggleFullData(!isFullData ? item.name : null)}>{isFullData === item.name ? strings.hide : strings.show} {strings.fullInfo}</span>
@@ -29,7 +29,7 @@ const DataContainer = ({data, error, storageData}) => {
             </div>
          })}
          {isCountryCodes && data.map(el => {
-            return <div className='country_code'>{Object.entries(el).map(([key, value]) => `${key}: ${value}`)}</div>
+            return <div key={uniqueId()} className='country_code'>{Object.entries(el).map(([key, value]) => `${key}: ${value}`)}</div>
          })}
       </div>
    );
