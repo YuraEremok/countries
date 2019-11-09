@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6ed4116f-ee3e-48e4-9dfc-9d7160f9449d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/screenshot.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/DataContainer/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/DataContainer/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/FullInfo/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/FullInfo/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/reducers/rootReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/reducers/rootReducer.js" afterDir="false" />
-    </list>
+    <list default="true" id="6ed4116f-ee3e-48e4-9dfc-9d7160f9449d" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -142,8 +135,9 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="width" value="1366" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="350" />
+    <option name="width" value="1379" />
     <option name="height" value="768" />
   </component>
   <component name="ProjectLevelVcsManager">
@@ -251,22 +245,21 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1572976077734</updated>
-      <workItem from="1572976079333" duration="111274000" />
+      <workItem from="1572976079333" duration="111541000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="111274000" />
+    <option name="totallyTimeSpent" value="111541000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
-    <editor active="true" />
+    <frame x="350" y="0" width="1379" height="768" extended-state="0" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
       <window_info id="npm" order="1" sideWeight="0.50078493" side_tool="true" weight="0.1349739" />
-      <window_info active="true" content_ui="combo" id="Project" order="2" sideWeight="0.49921507" visible="true" weight="0.13467261" />
+      <window_info active="true" content_ui="combo" id="Project" order="2" sideWeight="0.49921507" visible="true" weight="0.1349739" />
       <window_info id="Structure" order="3" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="0" weight="0.33707866" />
+      <window_info anchor="bottom" id="Terminal" order="0" visible="true" weight="0.32967034" />
       <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="2" weight="0.32967034" />
       <window_info anchor="bottom" id="Docker" order="3" show_stripe_button="false" />
